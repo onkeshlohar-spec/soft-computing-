@@ -121,6 +121,47 @@ plt.show()  # or plt.savefig("name.png")
 
 --------------------------------------------------------------------------------------------------------
 
+median:
+n_num = [1,2,3,4,5]
+n=len(n_num)
+n_num.sort()
+if n%2==0:
+    median1=n_num[n//2]
+    median2=n_num[n//2-1]
+    median=n_num(median1+median2)/2
+else:
+    median=n_num[n//2]    
+print("median is :"+str(median))
+
+
+mean:
+n_num =[1,2,3,4,5]
+n=len(n_num)
+
+get_sum = sum(n_num)
+mean=get_sum/n
+print("mean is :"+str(mean)
+
+mode:
+from collections import Counter
+n_num=[1,2,3,4,5,5]
+n=len(n_num)
+
+data= Counter (n_num)
+get_mode=dict(data)
+mode=[k for k,v in get_mode.items() if v == max(list(data.values()))]
+
+if len(mode)==n:
+    get_mode="no mode found "
+else:
+    get_mode="mode is "+','.join(map(str,mode))
+print(get_mode)
+
+
+---------------------------------------------------------------------------------------------
+
+
+
 
 
 
