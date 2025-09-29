@@ -1,0 +1,137 @@
+from collections import deque
+
+def bfs(graph, start_node):
+  
+    Performs a Breadth-First Search (BFS) on a graph.
+
+    Args:
+        graph (dict): A dictionary representing the graph as an adjacency list.
+                      Keys are nodes, and values are lists of their neighbors.
+        start_node: The node from which to start the BFS traversal.
+
+    Returns:
+        list: A list of nodes in the order they were visited during the BFS.
+    """
+    visited = set()  # To keep track of visited nodes
+    queue = deque()  # Initialize the queue for BFS
+
+    visited.add(start_node)  # Mark the start_node as visited
+    queue.append(start_node) # Enqueue the start_node
+
+    traversal_order = [] # To store the order of visited nodes
+
+    while queue:
+        current_node = queue.popleft() # Dequeue the node at the front
+        traversal_order.append(current_node) # Add to traversal order
+
+        # Explore neighbors of the current_node
+        for neighbor in graph[current_node]:
+            if neighbor not in visited:
+                visited.add(neighbor) # Mark neighbor as visited
+                queue.append(neighbor) # Enqueue the unvisited neighbor
+    
+    return traversal_order
+
+# Example Usage:
+if __name__ == "__main__":
+    # Define a sample graph as an adjacency list
+    graph = {
+        'A': ['B', 'C'],
+        'B': ['A', 'D', 'E'],
+        'C': ['A', 'F'],
+        'D': ['B'],
+        'E': ['B', 'F'],
+        'F': ['C', 'E']
+    }
+
+    start_vertex = 'A'
+    print("BFS traversal starting from '{start_vertex}':")
+    result = bfs(graph, start_vertex)
+    print(result)
+
+    # Another example graph
+    graph2 = {
+        0: [1, 2],
+        1: [0, 3, 4],
+        2: [0, 5],
+        3: [1],
+        4: [1, 5],
+        5: [2, 4]
+    }
+    start_vertex2 = 0
+    print("\nBFS traversal starting from '{start_vertex2}':")
+    result2 = bfs(graph2, start_vertex2)
+    print(result2)
+
+
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+
+# Using a Python dictionary to act as an adjacency list
+graph = {
+  '5' : ['3','7'],
+  '3' : ['2', '4'],
+  '7' : ['8'],
+  '2' : [],
+  '4' : ['8'],
+  '8' : []
+}
+
+visited = set() # Set to keep track of visited nodes of graph.
+
+def dfs(visited, graph, node):  #function for dfs 
+    if node not in visited:
+        print (node)
+        visited.add(node)
+        for neighbour in graph[node]:
+            dfs(visited, graph, neighbour)
+
+# Driver Code
+print("Following is the Depth-First Search")
+dfs(visited, graph, '5')
+
+
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+Pandas:
+
+
+import pandas as pd
+
+scottish_hills = {'Hill Name': ['Ben Nevis', 'Ben Macdui', 'Braeriach', 'Cairn Toul', 'Sgòr an Lochain Uaine'],
+                  'Height': [1345, 1309, 1296, 1291, 1258],
+                  'Latitude': [56.79685, 57.070453, 57.078628, 57.054611, 57.057999],
+                  'Longitude': [-5.003508, -3.668262, -3.728024, -3.71042, -3.725416]}
+
+dataframe = pd.DataFrame(scottish_hills, columns=['Hill Name', 'Height', 'Latitude', 'Longitude'])
+dataframe['Region'] = ['Grampian', 'Cairngorm', 'Cairngorm', 'Cairngorm', 'Cairngorm']
+print(dataframe)
+
+
+Matplotlib:
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+dataframe = pd.read_csv("scottish_hills.csv")
+x = dataframe.Height
+y = dataframe.Latitude
+plt.scatter(x, y)
+plt.show()  # or plt.savefig("name.png")
+
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+
