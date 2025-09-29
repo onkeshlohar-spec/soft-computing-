@@ -2,16 +2,6 @@ from collections import deque
 
 def bfs(graph, start_node):
   
-    Performs a Breadth-First Search (BFS) on a graph.
-
-    Args:
-        graph (dict): A dictionary representing the graph as an adjacency list.
-                      Keys are nodes, and values are lists of their neighbors.
-        start_node: The node from which to start the BFS traversal.
-
-    Returns:
-        list: A list of nodes in the order they were visited during the BFS.
-    """
     visited = set()  # To keep track of visited nodes
     queue = deque()  # Initialize the queue for BFS
 
@@ -130,6 +120,7 @@ plt.show()  # or plt.savefig("name.png")
 
 
 --------------------------------------------------------------------------------------------------------
+
 
 
 
